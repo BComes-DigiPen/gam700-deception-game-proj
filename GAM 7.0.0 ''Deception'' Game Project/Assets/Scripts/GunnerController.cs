@@ -1,5 +1,18 @@
-﻿using System;
+﻿/*\
+ *
+ *	Filename:		GunnerController.cs
+ *	Contributors:	BComes-DigiPen
+ *	Date:			2021/01/27
+ *	Description:	Script for the "Gunner" player / crosshair
+ *	Assignment:		GAM 7.0.0: "Deception" Game Project/Jam
+ *	Copyright:		(C) 2021 DigiPen (USA) Corporation. All rights reserved.
+ *	Source License:	BSD 3-Clause License
+ *
+\*/
+
+using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GunnerController : MonoBehaviour
 {
@@ -15,7 +28,9 @@ public class GunnerController : MonoBehaviour
 		CC2D = GetComponent<CircleCollider2D>();
 		SPR = GetComponent<SpriteRenderer>();
 		Cursor.visible = !HideCursor;
-		Cursor.lockState = (CursorLockMode)(Convert.ToInt32(LockCursor) * 2);
+		Cursor.lockState = CursorLockMode.None;
+		if (LockCursor)
+			Cursor.lockState = CursorLockMode.Confined;
 	}
 
 	private void Update()
