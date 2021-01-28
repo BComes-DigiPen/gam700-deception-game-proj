@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	//public GameState GameManagerState = GameState.InMainMenu;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	public enum GameState
+	{ InMainMenu, InGame, Paused, GunnerVictory, RunnerVictory }; // add other states as needed
+
+	// Start is called before the first frame update
+	private void Start()
+	{
+	}
+
+	// Update is called once per frame
+	private void Update()
+	{
+	}
 }
