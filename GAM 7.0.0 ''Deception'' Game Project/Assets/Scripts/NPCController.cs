@@ -9,6 +9,7 @@ public class NPCController : MonoBehaviour
     public float timer = 0;
     public float speed = 1;
 
+
     // Start is called before the first frame update
     void Start()
     {
