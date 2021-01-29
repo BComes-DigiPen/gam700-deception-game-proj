@@ -4,17 +4,31 @@ using UnityEngine;
 
 public class FinishLineLogic : MonoBehaviour
 {
+    public string Player_Tag;
+    public string NPC_Tag;
+    private string Winner;
+    public bool Player_Victory = false;
+    public bool NPC_Victory = false;
+    public bool Victory = false;
     // Check If Collided Object has a Tag that matches
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player_Runner")
+        if (Player_Victory == false || NPC_Victory == false)
         {
-            Debug.Log("Player Runner Has Crossed The Finish Line");
-        }
-        else if (collision.gameObject.tag == "NPC_Runner")
-        {
-            Debug.Log("NPC Runner Has Crossed The Finish Line");
+            if (collision.gameObject.tag == Player_Tag)
+            {
+                GetComponent<Collider2D>().enabled = false;
+                Player_Victory = true;
+                Winner = collision.gameObject.tag;
+                Debug.Log(Winner + " Has Won!");
+            }
+            if (collision.gameObject.tag == NPC_Tag)
+            {
+                GetComponent<Collider2D>().enabled = false;
+                NPC_Victory = true;
+                Winner = collision.gameObject.tag;
+                Debug.Log(Winner + " Has Won!");
+            }
         }
     }
-    // More will be added once more of the game is completed
 }
