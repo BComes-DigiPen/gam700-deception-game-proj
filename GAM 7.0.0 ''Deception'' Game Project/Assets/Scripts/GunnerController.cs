@@ -10,17 +10,15 @@
  *
 \*/
 
-using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GunnerController : MonoBehaviour
 {
 	public float ZPositionOverride = -5;
 	public bool HideCursor = false;
 	public bool LockCursor = false;
-	public int RunnerLayer = 9;
 
+	private LayerMask RunnerLayer;
 	private SpriteRenderer SPR;
 	private bool CollidingWithRunner = false;
 	private bool CollidingWithRunnerPlayer = false;
@@ -28,6 +26,8 @@ public class GunnerController : MonoBehaviour
 	private void Start()
 	{
 		SPR = GetComponent<SpriteRenderer>();
+		RunnerLayer = LayerMask.NameToLayer("RunnerLayer");
+
 		Cursor.visible = !HideCursor;
 		Cursor.lockState = CursorLockMode.None;
 		if (LockCursor)
@@ -37,10 +37,10 @@ public class GunnerController : MonoBehaviour
 	private void Update()
 	{
 		// Reset sprite color to white
-		SPR.color = new Color(1, 1, 1);
+		SPR.color = Color.white;
 
 		if (CollidingWithRunner)
-			SPR.color = new Color(0, 1, 0);
+			SPR.color = Color.green;
 
 		// Set sprite position to be where the mouse is on screen
 		transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -51,7 +51,7 @@ public class GunnerController : MonoBehaviour
 		if (Input.GetMouseButton(0))
 		{
 			print("Click");
-			SPR.color = new Color(1, 0, 0);
+			SPR.color = Color.red;
 			if (CollidingWithRunner)
 			{
 				print("Hit a runner!");
@@ -66,7 +66,7 @@ public class GunnerController : MonoBehaviour
 		if (COL2D.gameObject.layer == RunnerLayer)
 		{
 			CollidingWithRunner = true;
-			SPR.color = new Color(0, 1, 0);
+			SPR.color = Color.green;
 			print("Started colliding with an object on layer " + RunnerLayer);
 		}
 		if (COL2D.gameObject.tag == "RunnerPlayer")
@@ -83,7 +83,7 @@ public class GunnerController : MonoBehaviour
 		if (COL2D.gameObject.layer == RunnerLayer)
 		{
 			CollidingWithRunner = true;
-			SPR.color = new Color(0, 1, 0);
+			SPR.color = Color.green;
 			print("Still colliding with an object on layer " + RunnerLayer);
 		}
 		if (COL2D.gameObject.tag == "RunnerPlayer")
@@ -100,7 +100,7 @@ public class GunnerController : MonoBehaviour
 		if (COL2D.gameObject.layer == RunnerLayer)
 		{
 			CollidingWithRunner = false;
-			SPR.color = new Color(1, 1, 1);
+			SPR.color = Color.white;
 			print("No longer colliding with an object on layer " + RunnerLayer);
 		}
 		if (COL2D.gameObject.tag == "RunnerPlayer")
