@@ -6,7 +6,7 @@ public class NPCController : MonoBehaviour
 {
     public enum State { Standing, Walking };
     public State currentState = State.Standing;
-    public float timer = 0;
+    public float timer;
     public float speed = 1;
     public float speedMultiplier;
 
@@ -14,6 +14,7 @@ public class NPCController : MonoBehaviour
     void Start()
     {
         speedMultiplier = Random.Range(50, 150) / 100f;
+        timer = Random.Range(100, 500) / 100f;
     }
 
     // Update is called once per frame
