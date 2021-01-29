@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - RunnerPlayer
+  - RunnerNPC
+  - GunnerPlayer
   layers:
   - Default
   - TransparentFX
@@ -14,8 +17,8 @@ TagManager:
   - 
   - 
   - World
-  - Player
-  - 
+  - RunnerLayer
+  - GunnerLayer
   - 
   - 
   - 
