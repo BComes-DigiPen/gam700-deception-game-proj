@@ -17,14 +17,14 @@ public class FinishLineLogic : MonoBehaviour
         {
             if (collision.gameObject.tag == Player_Tag)
             {
-                GetComponent<Collider2D>().enabled = false;
+                //GetComponent<Collider2D>().enabled = false;
                 Player_Victory = true;
                 Winner = collision.gameObject.tag;
                 Debug.Log(Winner + " Has Won!");
             }
             if (collision.gameObject.tag == NPC_Tag)
             {
-                GetComponent<Collider2D>().enabled = false;
+                //GetComponent<Collider2D>().enabled = false;
                 NPC_Victory = true;
                 Winner = collision.gameObject.tag;
                 Debug.Log(Winner + " Has Won!");

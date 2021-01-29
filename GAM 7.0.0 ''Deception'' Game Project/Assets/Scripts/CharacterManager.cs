@@ -6,7 +6,9 @@ public class CharacterManager : MonoBehaviour
 {
     public GameObject NPCPrefab;
     public GameObject PlayerPrefab;
-    //public int numberOfNPCs = 6;
+    public int numberOfNPCs = 10;
+    public float startLineXValue = -8;
+    public float startLineYValueRange = 8;
 
     GameObject[] NPCs;
     GameObject player;
@@ -14,9 +16,9 @@ public class CharacterManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < 9; i++)
+        for (int i = 0; i < numberOfNPCs; i++)
         {
-            Instantiate(NPCPrefab, new Vector2(-9, 4-i), Quaternion.identity);
+            Instantiate(NPCPrefab, new Vector2(startLineXValue, (startLineYValueRange / 2) - i * (startLineYValueRange / (numberOfNPCs - 1))), Quaternion.identity);
         }
     }
 
