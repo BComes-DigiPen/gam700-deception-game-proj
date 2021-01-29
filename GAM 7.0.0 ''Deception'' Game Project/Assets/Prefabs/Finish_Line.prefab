@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1924211176620260493}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.02, y: 0, z: -10}
+  m_LocalPosition: {x: -0.91, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9045436141313667705}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 1465610126131701965}
   m_Layer: 0
   m_Name: Finish_Line
-  m_TagString: Player_Runner
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,8 +108,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5003592905725567378}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.03, y: 0.033689313, z: -0.092036135}
-  m_LocalScale: {x: 1, y: 10, z: 1}
+  m_LocalPosition: {x: -0.03, y: 0.033689313, z: 1}
+  m_LocalScale: {x: 1, y: 18, z: 1}
   m_Children:
   - {fileID: 1953378423813632849}
   m_Father: {fileID: 0}
@@ -205,3 +205,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player_Tag: Player_Runner
   NPC_Tag: NPC_Runner
+  Player_Victory: 0
+  NPC_Victory: 0
+  Victory: 0
