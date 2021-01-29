@@ -8,12 +8,12 @@ public class NPCController : MonoBehaviour
     public State currentState = State.Standing;
     public float timer = 0;
     public float speed = 1;
-
+    public float speedMultiplier;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        speedMultiplier = Random.Range(50, 150) / 100f;
     }
 
     // Update is called once per frame
@@ -21,11 +21,12 @@ public class NPCController : MonoBehaviour
     {
         if (timer <= 0)
         {
-            float temp = Random.Range(25, 150) / 100.0f;
-            timer = temp * temp;
-            //print(temp + ", " + temp * temp);
+
             ToggleState();
-            if (currentState == State.Standing)
+            float temp = Random.Range(25, 150) / 100.0f;
+            timer = currentState == State.Walking ? temp * temp * speedMultiplier : temp * temp / speedMultiplier;
+            print("State: " + currentState + ", Multiplier: " + speedMultiplier + ", timer: " + timer);
+            if (currentState == State.Walking)
             {
                 gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.right * speed;
             }
