@@ -269,12 +269,17 @@ PrefabInstance:
     - target: {fileID: 1465610126131701965, guid: d407c32111a05674db6ffadf8952675a,
         type: 3}
       propertyPath: NPC_Tag
-      value: NPC_Runner
+      value: RunnerNPC
       objectReference: {fileID: 0}
     - target: {fileID: 1465610126131701965, guid: d407c32111a05674db6ffadf8952675a,
         type: 3}
       propertyPath: Player_Tag
-      value: Player_Runner
+      value: RunnerPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 1465610126131701965, guid: d407c32111a05674db6ffadf8952675a,
+        type: 3}
+      propertyPath: NPC_Victory
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5003592905725567378, guid: d407c32111a05674db6ffadf8952675a,
         type: 3}
@@ -689,7 +694,7 @@ PrefabInstance:
     - target: {fileID: 4586938064411264032, guid: 463350ee6f1864d4ebe035a0e17303e7,
         type: 3}
       propertyPath: m_TagString
-      value: Player_Runner
+      value: RunnerPlayer
       objectReference: {fileID: 0}
     - target: {fileID: 5851892836153644293, guid: 463350ee6f1864d4ebe035a0e17303e7,
         type: 3}
