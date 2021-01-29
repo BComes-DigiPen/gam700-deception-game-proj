@@ -20,20 +20,20 @@ public class NPCController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Swap state when timer is up
         if (timer <= 0)
         {
 
             ToggleState();
             float temp = Random.Range(25, 150) / 100.0f;
             timer = currentState == State.Walking ? temp * temp * speedMultiplier : temp * temp / speedMultiplier;
-            print("State: " + currentState + ", Multiplier: " + speedMultiplier + ", timer: " + timer);
             if (currentState == State.Walking)
             {
                 gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.right * speed;
             }
             else
             {
-                gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero * speed;
+                gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             }
         }
         else

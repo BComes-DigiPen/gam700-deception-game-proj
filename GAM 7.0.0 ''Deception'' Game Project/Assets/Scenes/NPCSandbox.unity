@@ -219,7 +219,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NPCPrefab: {fileID: 4586938064411264032, guid: 0a4c224821f255249aa1afdf8b79821c,
     type: 3}
-  PlayerPrefab: {fileID: 3894499961922790723, guid: 00b4107d9f8ca024188c82692f292d82,
+  playerPrefab: {fileID: 3894499961922790723, guid: 00b4107d9f8ca024188c82692f292d82,
     type: 3}
   numberOfNPCs: 20
   startLineXValue: -8
