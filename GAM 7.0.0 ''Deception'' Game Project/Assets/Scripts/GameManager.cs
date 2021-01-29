@@ -15,6 +15,13 @@ public class GameManager : MonoBehaviour
 
     public static bool gamePaused = false;
 
+    int buildIndex;
+
+    private void Awake()
+    {
+        buildIndex = SceneManager.GetActiveScene().buildIndex;
+    }
+
     private void Update()
     {
         Paused();
@@ -33,26 +40,33 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void Paused()
+    public void Paused()
     {
-        if(Input.GetMouseButton(0))
+        if(buildIndex == 1)
         {
-            if(gamePaused)
+            if (Input.GetMouseButtonDown(0))
             {
-                state = GameState.InGame;
-            }
-            else
-            {
-                state = GameState.Paused;
+                if (gamePaused)
+                {
+                    state = GameState.InGame;
+                    gamePaused = false;
+                }
+                else
+                {
+                    state = GameState.Paused;
+                    gamePaused = true;
+                }
             }
         }
     }
-    void PlayGame()
+    public void PlayGame()
     {
-        if (Input.GetMouseButton(0))
+        if(buildIndex == 0)
         {
-            SceneManager.LoadScene("SampleScene");
-            state = GameState.InGame;
+            if (Input.GetMouseButtonDown(0))
+            {
+                SceneManager.LoadScene("SandboxE");
+            }
         }
     }
 }
