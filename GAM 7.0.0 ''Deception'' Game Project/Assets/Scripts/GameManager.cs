@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public enum GameState
     { InMainMenu, InGame, Paused, GunnerVictory, RunnerVictory }; // add other states as needed
 
-    private GameState state;
+    public GameState state;
 
     public static bool gamePaused = false;
 
@@ -27,9 +27,6 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        Paused();
-        PlayGame();
-
         switch (state)
         {
             case GameState.InMainMenu:
@@ -64,7 +61,7 @@ public class GameManager : MonoBehaviour
     }
     public void PlayGame()
     {
-        if(buildIndex == 0)
+        if(state == GameState.InMainMenu)
         {
             if (Input.GetMouseButtonDown(0))
             {
