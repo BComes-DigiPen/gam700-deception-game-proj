@@ -39,7 +39,7 @@ public class GunnerController : MonoBehaviour
 		// Reset sprite color to white
 		SPR.color = Color.white;
 
-		if (OverlappingRunner)
+		if (OverlappingRunner && !LastCollidedObject.GetComponent<RunnerShared>().IsDead())
 			SPR.color = Color.green;
 
 		// Set sprite position to be where the mouse is on screen, make sure its Z position is over everything else

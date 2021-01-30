@@ -14,7 +14,7 @@ using UnityEngine;
 
 public class RunnerController : MonoBehaviour
 {
-	public float SpeedMultiplier = 10;
+	public float SpeedMultiplier = 20;
 	public float WalkSpeed = 20;
 	public float RunSpeed = 40;
 
@@ -29,6 +29,9 @@ public class RunnerController : MonoBehaviour
 
 	private void Update()
 	{
+		if (!(Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.LeftShift)))
+			RS.RB2D.velocity = Vector2.zero;
+
 		if (!RS.IsDead())
 		{
 			RS.MovementState = RunnerShared.MovementStates.Idle;
@@ -46,7 +49,6 @@ public class RunnerController : MonoBehaviour
 		}
 		else
 		{
-			RS.MovementState = RunnerShared.MovementStates.Dead;
 			print("The running player is dead!");
 		}
 	}

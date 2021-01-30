@@ -31,9 +31,6 @@ public class RunnerShared : MonoBehaviour
 
 	private void Update()
 	{
-		if (!NPC)
-			RB2D.velocity = Vector2.zero;
-
 		if (Dead)
 		{
 			MovementState = MovementStates.Dead;
