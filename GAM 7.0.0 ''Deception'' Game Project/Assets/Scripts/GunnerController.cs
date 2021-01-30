@@ -2,7 +2,7 @@
  *
  *	Filename:		GunnerController.cs
  *	Contributors:	BComes-DigiPen
- *	Date:			2021/01/28
+ *	Last Modified:	2021/01/29
  *	Description:	Script for the "Gunner" player / crosshair
  *	Assignment:		GAM 7.0.0: "Deception" Game Project/Jam
  *	Copyright:		(C) 2021 DigiPen (USA) Corporation. All rights reserved.
@@ -14,14 +14,14 @@ using UnityEngine;
 
 public class GunnerController : MonoBehaviour
 {
-	public float ZPositionOverride = -5;
+	public float ZPosOverride = -5;
 	public bool HideCursor = false;
 	public bool LockCursor = false;
 
 	private LayerMask RunnerLayer;
 	private SpriteRenderer SPR;
-	private bool CollidingWithRunner = false;
-	private bool CollidingWithRunnerPlayer = false;
+	private bool OverlappingRunner = false;
+	private GameObject LastCollidedObject = null;
 
 	private void Start()
 	{
@@ -39,76 +39,40 @@ public class GunnerController : MonoBehaviour
 		// Reset sprite color to white
 		SPR.color = Color.white;
 
-		if (CollidingWithRunner)
+		if (OverlappingRunner)
 			SPR.color = Color.green;
 
-		// Set sprite position to be where the mouse is on screen
+		// Set sprite position to be where the mouse is on screen, make sure its Z position is over everything else
 		transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-		transform.position = new Vector3(transform.position.x, transform.position.y, ZPositionOverride);
+		transform.position = new Vector3(transform.position.x, transform.position.y, ZPosOverride);
 
-		// Just to test if clicking works, set the sprite color to red when clicking. This will be changed to actually
-		// do stuff later
 		if (Input.GetMouseButton(0))
 		{
-			print("Click");
 			SPR.color = Color.red;
-			if (CollidingWithRunner)
+			if (OverlappingRunner)
 			{
-				print("Hit a runner!");
-				if (CollidingWithRunnerPlayer)
-					print("Hit a running player!");
+				LastCollidedObject.GetComponent<RunnerShared>().KillRunner();
 			}
+			// forget the last object we overlapped, since we didn't shoot it
+			LastCollidedObject = null;
+			OverlappingRunner = false;
 		}
-	}
-
-	private void OnTriggerEnter2D(Collider2D COL2D)
-	{
-		if (COL2D.gameObject.layer == RunnerLayer)
-		{
-			CollidingWithRunner = true;
-			SPR.color = Color.green;
-			print("Started colliding with an object on layer " + RunnerLayer);
-		}
-		if (COL2D.gameObject.tag == "RunnerPlayer")
-		{
-			CollidingWithRunnerPlayer = true;
-			print("RunnerPlayer");
-		}
-		if (COL2D.gameObject.tag == "RunnerNPC")
-			print("RunnerNPC");
 	}
 
 	private void OnTriggerStay2D(Collider2D COL2D)
 	{
-		if (COL2D.gameObject.layer == RunnerLayer)
+		LastCollidedObject = COL2D.gameObject;
+		if (LastCollidedObject.layer == RunnerLayer)
 		{
-			CollidingWithRunner = true;
+			OverlappingRunner = true;
 			SPR.color = Color.green;
-			print("Still colliding with an object on layer " + RunnerLayer);
 		}
-		if (COL2D.gameObject.tag == "RunnerPlayer")
-		{
-			CollidingWithRunnerPlayer = true;
-			print("RunnerPlayer");
-		}
-		if (COL2D.gameObject.tag == "RunnerNPC")
-			print("RunnerNPC");
 	}
 
 	private void OnTriggerExit2D(Collider2D COL2D)
 	{
-		if (COL2D.gameObject.layer == RunnerLayer)
-		{
-			CollidingWithRunner = false;
-			SPR.color = Color.white;
-			print("No longer colliding with an object on layer " + RunnerLayer);
-		}
-		if (COL2D.gameObject.tag == "RunnerPlayer")
-		{
-			CollidingWithRunnerPlayer = false;
-			print("RunnerPlayer");
-		}
-		if (COL2D.gameObject.tag == "RunnerNPC")
-			print("RunnerNPC");
+		LastCollidedObject = null;
+		OverlappingRunner = false;
+		SPR.color = Color.white;
 	}
 }

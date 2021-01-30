@@ -202,6 +202,8 @@ GameObject:
   - component: {fileID: 1303992009}
   - component: {fileID: 1303992008}
   - component: {fileID: 1303992007}
+  - component: {fileID: 1303992011}
+  - component: {fileID: 1303992012}
   m_Layer: 9
   m_Name: RunnerNPC
   m_TagString: RunnerNPC
@@ -310,6 +312,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1303992011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1303992006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db0ad5750278e94bb19da8c1193acbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 1
+--- !u!114 &1303992012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1303992006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92ca5c5f9e06f314d893d46c389a2450, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsNPC: 1
+  MovementState: 0
+  RB2D: {fileID: 0}
 --- !u!1 &1937504761
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,6 +353,8 @@ GameObject:
   - component: {fileID: 1937504763}
   - component: {fileID: 1937504762}
   - component: {fileID: 1937504766}
+  - component: {fileID: 1937504767}
+  - component: {fileID: 1937504768}
   m_Layer: 9
   m_Name: RunnerPlayer
   m_TagString: RunnerPlayer
@@ -354,14 +386,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1937504761}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -443,12 +475,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08a4b0a8f34121142a6fa5207b578a69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MinColor: {r: 0, g: 0, b: 0, a: 0}
+  MaxColor: {r: 0, g: 0, b: 0, a: 0}
   RMin: 0.5
   RMax: 0.75
   GMin: 0.5
   GMax: 0.75
   BMin: 0.5
   BMax: 0.75
+--- !u!114 &1937504767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1937504761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eff3bf5f9f2c8f428150dda2e4b834d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpeedMultiplier: 100
+  WalkSpeed: 20
+  RunSpeed: 40
+--- !u!114 &1937504768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1937504761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92ca5c5f9e06f314d893d46c389a2450, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsNPC: 0
+  MovementState: 0
+  RB2D: {fileID: 0}
 --- !u!1001 &2072219479
 PrefabInstance:
   m_ObjectHideFlags: 0

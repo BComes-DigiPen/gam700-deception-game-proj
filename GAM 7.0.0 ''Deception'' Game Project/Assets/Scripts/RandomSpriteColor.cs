@@ -14,29 +14,15 @@ using UnityEngine;
 
 public class RandomSpriteColor : MonoBehaviour
 {
-	[Range(0, 1)]
-	public float RMin = .5f;
+	public Color MinColor;
 
-	[Range(0, 1)]
-	public float RMax = .75f;
-
-	[Range(0, 1)]
-	public float GMin = .5f;
-
-	[Range(0, 1)]
-	public float GMax = .75f;
-
-	[Range(0, 1)]
-	public float BMin = .5f;
-
-	[Range(0, 1)]
-	public float BMax = .75f;
+	public Color MaxColor;
 
 	private SpriteRenderer SPR;
 
 	private void Start()
 	{
 		SPR = GetComponent<SpriteRenderer>();
-		SPR.color = new Color(Random.Range(RMin, RMax), Random.Range(GMin, GMax), Random.Range(BMin, BMax));
+		SPR.color = new Color(Random.Range(MinColor.r, MaxColor.r), Random.Range(MinColor.g, MaxColor.g), Random.Range(MinColor.b, MaxColor.b));
 	}
 }

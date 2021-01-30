@@ -1,18 +1,53 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿/*\
+ *
+ *	Filename:		RunnerController.cs
+ *	Contributors:	BComes-DigiPen
+ *	Last Modified:	2021/01/29
+ *	Description:	Script for the "Runner" player
+ *	Assignment:		GAM 7.0.0: "Deception" Game Project/Jam
+ *	Copyright:		(C) 2021 DigiPen (USA) Corporation. All rights reserved.
+ *	Source License:	BSD 3-Clause License
+ *
+\*/
+
 using UnityEngine;
 
 public class RunnerController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	public float SpeedMultiplier = 10;
+	public float WalkSpeed = 20;
+	public float RunSpeed = 40;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	private RunnerShared RS;
+
+	private void Start()
+	{
+		RS = GetComponent<RunnerShared>();
+		if (RS.IsNPC())
+			RS.ToggleNPCState();
+	}
+
+	private void Update()
+	{
+		if (!RS.IsDead())
+		{
+			RS.MovementState = RunnerShared.MovementStates.Idle;
+
+			if (Input.GetKey(KeyCode.Space))
+			{
+				RS.MovementState = RunnerShared.MovementStates.Walking;
+				RS.RB2D.velocity = Vector2.right * WalkSpeed * SpeedMultiplier * Time.deltaTime;
+			}
+			if (Input.GetKey(KeyCode.LeftShift))
+			{
+				RS.MovementState = RunnerShared.MovementStates.Running;
+				RS.RB2D.velocity = Vector2.right * RunSpeed * SpeedMultiplier * Time.deltaTime;
+			}
+		}
+		else
+		{
+			RS.MovementState = RunnerShared.MovementStates.Dead;
+			print("The running player is dead!");
+		}
+	}
 }
