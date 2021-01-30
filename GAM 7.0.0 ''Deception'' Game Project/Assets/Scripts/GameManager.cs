@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
 {
     //public GameState GameManagerState = GameState.InMainMenu;
 
+    public string Level1_Name;
+    public string Level2_Name;
+    public string Level3_Name;
     public enum GameState
     { InMainMenu, InGame, Paused, GunnerVictory, RunnerVictory }; // add other states as needed
 
@@ -65,7 +68,7 @@ public class GameManager : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                SceneManager.LoadScene("SandboxE");
+                SceneManager.LoadScene(Level1_Name);
             }
         }
     }
