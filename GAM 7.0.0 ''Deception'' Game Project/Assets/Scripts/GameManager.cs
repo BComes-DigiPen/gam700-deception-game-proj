@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
 
     public void Paused()
     {
+        print("Pause Button Clicked");
         if(buildIndex == 1)
         {
             if (Input.GetMouseButtonDown(0))
