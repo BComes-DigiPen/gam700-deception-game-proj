@@ -13,12 +13,13 @@ public class FinishLineLogic : MonoBehaviour
     // Check If Collided Object has a Tag that matches
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (Player_Victory == false || NPC_Victory == false)
+        if (Victory != true)
         {
             if (collision.gameObject.tag == Player_Tag)
             {
                 //GetComponent<Collider2D>().enabled = false;
                 Player_Victory = true;
+                Victory = true;
                 Winner = collision.gameObject.tag;
                 Debug.Log(Winner + " Has Won!");
             }
@@ -26,6 +27,7 @@ public class FinishLineLogic : MonoBehaviour
             {
                 //GetComponent<Collider2D>().enabled = false;
                 NPC_Victory = true;
+                Victory = true;
                 Winner = collision.gameObject.tag;
                 Debug.Log(Winner + " Has Won!");
             }
