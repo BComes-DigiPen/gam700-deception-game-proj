@@ -1,49 +1,43 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class NPCController : MonoBehaviour
 {
-    public enum State { Standing, Walking };
-    public State currentState = State.Standing;
-    public float timer;
-    public float speed = 1;
-    public float speedMultiplier;
+	private float Timer;
+	public float Speed = 1;
+	private float SpeedMultiplier;
+	private RunnerShared RS;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        speedMultiplier = Random.Range(50, 150) / 100f;
-        timer = Random.Range(100, 500) / 100f;
-    }
+	private void Start()
+	{
+		RS = GetComponent<RunnerShared>();
+		if (!RS.IsNPC())
+			RS.ToggleNPCState();
+		SpeedMultiplier = Random.Range(50, 150) / 100f;
+		Timer = Random.Range(100, 500) / 100f;
+	}
 
-    // Update is called once per frame
-    void Update()
-    {
-        // Swap state when timer is up
-        if (timer <= 0)
-        {
+	private void Update()
+	{
+		if (!RS.IsDead())
+		{
+			// Swap state when timer is up
+			if (Timer <= 0)
+			{
+				ToggleState();
+				float temp = Random.Range(25, 150) / 100.0f;
+				Timer = RS.MovementState == RunnerShared.MovementStates.Walking ? temp * temp * SpeedMultiplier : temp * temp / SpeedMultiplier;
+				if (RS.MovementState == RunnerShared.MovementStates.Walking)
+					RS.RB2D.velocity = Vector2.right * Speed;
+				else
+					RS.RB2D.velocity = Vector2.zero;
+			}
+			else
+				Timer -= Time.deltaTime;
+		}
+	}
 
-            ToggleState();
-            float temp = Random.Range(25, 150) / 100.0f;
-            timer = currentState == State.Walking ? temp * temp * speedMultiplier : temp * temp / speedMultiplier;
-            if (currentState == State.Walking)
-            {
-                gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.right * speed;
-            }
-            else
-            {
-                gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            }
-        }
-        else
-        {
-            timer -= Time.deltaTime;
-        }
-    }
-
-    void ToggleState ()
-    {
-        currentState = currentState == State.Standing ? State.Walking : State.Standing;
-    }
+	private void ToggleState()
+	{
+		RS.MovementState = RS.MovementState == RunnerShared.MovementStates.Idle ? RunnerShared.MovementStates.Walking : RunnerShared.MovementStates.Idle;
+	}
 }
