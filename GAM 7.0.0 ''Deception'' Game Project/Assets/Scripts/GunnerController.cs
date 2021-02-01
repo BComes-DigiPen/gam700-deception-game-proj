@@ -2,7 +2,7 @@
  *
  *	Filename:		GunnerController.cs
  *	Contributors:	BComes-DigiPen
- *	Last Modified:	2021/01/29
+ *	Last Modified:	2021/02/01
  *	Description:	Script for the "Gunner" player / crosshair
  *	Assignment:		GAM 7.0.0: "Deception" Game Project/Jam
  *	Copyright:		(C) 2021 DigiPen (USA) Corporation. All rights reserved.
@@ -42,7 +42,7 @@ public class GunnerController : MonoBehaviour
 		if (OverlappingRunner && !LastCollidedObject.GetComponent<RunnerShared>().IsDead())
 			SPR.color = Color.green;
 
-		// Set sprite position to be where the mouse is on screen, make sure its Z position is over everything else
+		// Set sprite position to cursor, make sure Z position is over other objects so it is visible at all times
 		transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		transform.position = new Vector3(transform.position.x, transform.position.y, ZPosOverride);
 
@@ -50,9 +50,7 @@ public class GunnerController : MonoBehaviour
 		{
 			SPR.color = Color.red;
 			if (OverlappingRunner)
-			{
 				LastCollidedObject.GetComponent<RunnerShared>().KillRunner();
-			}
 			// forget the last object we overlapped, since we didn't shoot it
 			LastCollidedObject = null;
 			OverlappingRunner = false;

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8254881974516393989}
   m_Layer: 10
   m_Name: GunnerCrosshair
-  m_TagString: Untagged
+  m_TagString: GunnerPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,11 +96,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deed1f13653e6a641ba4ecc2c291e388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ZPositionOverride: -5
+  ZPosOverride: -5
   HideCursor: 0
   LockCursor: 1
-  RunnerLayer: 9
-  Runner: {fileID: 0}
 --- !u!58 &3388367090411431600
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -111,7 +109,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

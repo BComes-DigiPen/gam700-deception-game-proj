@@ -2,7 +2,7 @@
  *
  *	Filename:		RunnerShared.cs
  *	Contributors:	BComes-DigiPen
- *	Last Modified:	2021/01/29
+ *	Last Modified:	2021/02/01
  *	Description:	Script containing shared variables & logic for the "Runner" players and NPCs
  *	Assignment:		GAM 7.0.0: "Deception" Game Project/Jam
  *	Copyright:		(C) 2021 DigiPen (USA) Corporation. All rights reserved.
@@ -35,16 +35,14 @@ public class RunnerShared : MonoBehaviour
 		{
 			MovementState = MovementStates.Dead;
 			RB2D.velocity = Vector2.zero;
+			if (!NPC)
+				GameManager.SetState(GameState.GunnerVictory);
 		}
 	}
 
 	public void KillRunner()
 	{
 		Dead = true;
-		if (!NPC)
-        {
-			GameManager.SetState(GameState.GunnerVictory);
-        }
 	}
 
 	public bool IsDead()
