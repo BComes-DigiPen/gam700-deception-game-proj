@@ -41,6 +41,10 @@ public class RunnerShared : MonoBehaviour
 	public void KillRunner()
 	{
 		Dead = true;
+		if (!NPC)
+        {
+			GameManager.SetState(GameState.GunnerVictory);
+        }
 	}
 
 	public bool IsDead()

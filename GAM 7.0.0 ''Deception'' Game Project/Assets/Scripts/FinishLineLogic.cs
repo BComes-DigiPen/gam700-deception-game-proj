@@ -22,6 +22,7 @@ public class FinishLineLogic : MonoBehaviour
                 Victory = true;
                 Winner = collision.gameObject.tag;
                 Debug.Log(Winner + " Has Won!");
+                GameManager.SetState(GameState.RunnerVictory);
             }
             if (collision.gameObject.tag == NPC_Tag)
             {
@@ -30,7 +31,9 @@ public class FinishLineLogic : MonoBehaviour
                 Victory = true;
                 Winner = collision.gameObject.tag;
                 Debug.Log(Winner + " Has Won!");
+                GameManager.SetState(GameState.NPCVictory);
             }
+
         }
     }
 }

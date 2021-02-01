@@ -4,70 +4,49 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
+public enum GameState
+{ InMainMenu, InGame, Paused, GunnerVictory, RunnerVictory, NPCVictory }; // add other states as needed
+
 public class GameManager : MonoBehaviour
 {
     //public GameState GameManagerState = GameState.InMainMenu;
 
-    public string Level1_Name;
-    public string Level2_Name;
-    public string Level3_Name;
-    public enum GameState
-    { InMainMenu, InGame, Paused, GunnerVictory, RunnerVictory }; // add other states as needed
+    public string Level_Name;
 
-    public GameState state;
+    public static GameState state;
 
     public static bool gamePaused = false;
 
-    int buildIndex;
-
-    private void Awake()
-    {
-        buildIndex = SceneManager.GetActiveScene().buildIndex;
-    }
 
     private void Update()
     {
-        switch (state)
+    }
+
+    internal static void SetState(GameState newState)
+    {
+        state = newState;
+
+        switch (newState)
         {
             case GameState.InMainMenu:
                 break;
             case GameState.InGame:
                 Time.timeScale = 1f;
+                gamePaused = false;
                 break;
             case GameState.Paused:
                 Time.timeScale = 0f;
+                gamePaused = true;
                 break;
-        }
-    }
-
-    public void Paused()
-    {
-        print("Pause Button Clicked");
-        if(buildIndex == 1)
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                if (gamePaused)
-                {
-                    state = GameState.InGame;
-                    gamePaused = false;
-                }
-                else
-                {
-                    state = GameState.Paused;
-                    gamePaused = true;
-                }
-            }
-        }
-    }
-    public void PlayGame()
-    {
-        if(state == GameState.InMainMenu)
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                SceneManager.LoadScene(Level1_Name);
-            }
+            case GameState.RunnerVictory:
+                SceneManager.LoadScene("FinishLevel");
+                break;
+            case GameState.GunnerVictory:
+                SceneManager.LoadScene("FinishLevel");
+                break;
+            case GameState.NPCVictory:
+                SceneManager.LoadScene("FinishLevel");
+                break;
         }
     }
 }
