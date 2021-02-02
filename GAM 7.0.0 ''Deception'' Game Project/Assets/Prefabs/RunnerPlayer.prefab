@@ -118,7 +118,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 3109856974126061273}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: a76b58a3536549b43988d812f1be1c31, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MovementState: 0
-  RB2D: {fileID: 3109856974126061275}
+  RB2D: {fileID: 0}
 --- !u!114 &3109856974126061279
 MonoBehaviour:
   m_ObjectHideFlags: 0
