@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3109856974126061278}
   - component: {fileID: 3109856974126060832}
   - component: {fileID: 3109856974126061279}
+  - component: {fileID: 5975907916397753108}
   m_Layer: 9
   m_Name: RunnerPlayer
   m_TagString: RunnerPlayer
@@ -75,7 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b3e1b56df8ef132469c3eccf1d8d9f6f, type: 3}
+  m_Sprite: {fileID: 1537333141803137975, guid: 071e69279837d6541b4d98f089251b1a,
+    type: 3}
   m_Color: {r: 1, g: 0.995283, b: 0.9959669, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -166,3 +168,22 @@ MonoBehaviour:
   SpeedMultiplier: 20
   WalkSpeed: 20
   RunSpeed: 50
+--- !u!95 &5975907916397753108
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3109856974126061273}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7d95eea60c0d82045a4c0891c7adf9a6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
