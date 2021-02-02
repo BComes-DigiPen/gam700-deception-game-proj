@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MovementState: 0
-  RB2D: {fileID: 0}
+  RB2D: {fileID: 3109856974126061275}
 --- !u!114 &3109856974126061279
 MonoBehaviour:
   m_ObjectHideFlags: 0
