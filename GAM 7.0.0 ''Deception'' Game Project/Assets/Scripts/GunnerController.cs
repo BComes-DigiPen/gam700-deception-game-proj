@@ -38,9 +38,13 @@ public class GunnerController : MonoBehaviour
 	{
 		// Reset sprite color to white
 		SPR.color = Color.white;
+		transform.rotation = new Quaternion(0, 0, 0, 0);
 
 		if (OverlappingRunner && !LastCollidedObject.GetComponent<RunnerShared>().IsDead())
+		{
+			transform.Rotate(0, 0, 45);
 			SPR.color = Color.green;
+		}
 
 		// Set sprite position to cursor, make sure Z position is over other objects so it is visible at all times
 		transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
