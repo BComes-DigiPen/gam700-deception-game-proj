@@ -271,6 +271,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: RunnerPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 3109856974126061276, guid: fa7ef6d1963ec2748ae9acfcca5d96b4,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b3e1b56df8ef132469c3eccf1d8d9f6f,
+        type: 3}
     - target: {fileID: 3109856974126061277, guid: fa7ef6d1963ec2748ae9acfcca5d96b4,
         type: 3}
       propertyPath: m_RootOrder
