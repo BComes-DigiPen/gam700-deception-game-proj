@@ -23,10 +23,14 @@ public class GunnerController : MonoBehaviour
 	private bool OverlappingRunner = false;
 	private GameObject LastCollidedObject = null;
 
+	public AudioSource audioSource;
+	public AudioClip gunshotSound;
+
 	private void Start()
 	{
 		SPR = GetComponent<SpriteRenderer>();
 		RunnerLayer = LayerMask.NameToLayer("RunnerLayer");
+		audioSource.clip = gunshotSound;
 
 		Cursor.visible = !HideCursor;
 		Cursor.lockState = CursorLockMode.None;
@@ -53,6 +57,7 @@ public class GunnerController : MonoBehaviour
 		if (Input.GetMouseButton(0))
 		{
 			SPR.color = Color.red;
+			audioSource.Play();
 			if (OverlappingRunner)
 				LastCollidedObject.GetComponent<RunnerShared>().KillRunner();
 			// forget the last object we overlapped, since we didn't shoot it
