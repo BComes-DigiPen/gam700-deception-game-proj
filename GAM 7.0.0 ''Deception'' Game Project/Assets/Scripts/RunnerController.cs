@@ -20,17 +20,24 @@ public class RunnerController : MonoBehaviour
 
 	private RunnerShared RS;
 
+	Animator ani;
+
 	private void Start()
 	{
 		RS = GetComponent<RunnerShared>();
 		if (RS.IsNPC())
 			RS.ToggleNPCState();
+
+		ani = gameObject.GetComponent<Animator>();
 	}
 
 	private void Update()
 	{
 		if (!(Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.LeftShift)))
+		{
 			RS.RB2D.velocity = Vector2.zero;
+			ani.SetBool("isMoving", false);
+		}
 
 		if (!RS.IsDead())
 		{
@@ -40,6 +47,7 @@ public class RunnerController : MonoBehaviour
 			{
 				RS.MovementState = RunnerShared.MovementStates.Walking;
 				RS.RB2D.velocity = Vector2.right * WalkSpeed * SpeedMultiplier * Time.deltaTime;
+				ani.SetBool("isMoving", true);
 			}
 			if (Input.GetKey(KeyCode.LeftShift))
 			{
