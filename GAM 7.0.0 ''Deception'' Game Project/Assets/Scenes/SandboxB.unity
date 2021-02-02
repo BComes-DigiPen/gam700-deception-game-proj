@@ -190,12 +190,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7936f4e5c788eef4f8b7eee3117af2a9, type: 3}
---- !u!1 &1937504761 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3109856974126061273, guid: fa7ef6d1963ec2748ae9acfcca5d96b4,
-    type: 3}
-  m_PrefabInstance: {fileID: 3109856972270595872}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2072219479
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -203,30 +197,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3388367090411431600, guid: 3795d91cc0d771040bd3dba7b4a17b15,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3388367090411431601, guid: 3795d91cc0d771040bd3dba7b4a17b15,
         type: 3}
       propertyPath: m_Name
       value: GunnerCrosshair
-      objectReference: {fileID: 0}
-    - target: {fileID: 3388367090411431601, guid: 3795d91cc0d771040bd3dba7b4a17b15,
-        type: 3}
-      propertyPath: m_TagString
-      value: GunnerPlayer
-      objectReference: {fileID: 0}
-    - target: {fileID: 3388367090411431603, guid: 3795d91cc0d771040bd3dba7b4a17b15,
-        type: 3}
-      propertyPath: Runner
-      value: 
-      objectReference: {fileID: 1937504761}
-    - target: {fileID: 3388367090411431603, guid: 3795d91cc0d771040bd3dba7b4a17b15,
-        type: 3}
-      propertyPath: RunnerLayer.m_Bits
-      value: 512
       objectReference: {fileID: 0}
     - target: {fileID: 3388367090411431613, guid: 3795d91cc0d771040bd3dba7b4a17b15,
         type: 3}
