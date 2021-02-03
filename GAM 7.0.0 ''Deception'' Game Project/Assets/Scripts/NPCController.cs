@@ -3,7 +3,7 @@
 public class NPCController : MonoBehaviour
 {
 	private float Timer;
-	public float Speed = 1;
+	public float Speed = 10;
 	private float SpeedMultiplier;
 	private RunnerShared RS;
 
@@ -32,7 +32,7 @@ public class NPCController : MonoBehaviour
 				Timer = RS.MovementState == RunnerShared.MovementStates.Walking ? temp * temp * SpeedMultiplier : temp * temp / SpeedMultiplier;
 				if (RS.MovementState == RunnerShared.MovementStates.Walking)
 				{
-					RS.RB2D.velocity = Vector2.right * Speed;
+					RS.RB2D.velocity = Vector2.right * Speed * Time.deltaTime;
 					ani.SetBool("isMoving", true);
 				}
 				else

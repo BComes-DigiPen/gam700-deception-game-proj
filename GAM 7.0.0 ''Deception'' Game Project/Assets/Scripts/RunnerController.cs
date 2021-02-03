@@ -14,9 +14,9 @@ using UnityEngine;
 
 public class RunnerController : MonoBehaviour
 {
-	public float SpeedMultiplier = 20;
-	public float WalkSpeed = 20;
-	public float RunSpeed = 40;
+	public float SpeedMultiplier = 1;
+	public float WalkSpeed = 10;
+	public float RunSpeed = 20;
 
 	private RunnerShared RS;
 
