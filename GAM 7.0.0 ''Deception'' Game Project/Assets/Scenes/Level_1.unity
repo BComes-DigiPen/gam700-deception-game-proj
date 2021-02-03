@@ -8261,6 +8261,31 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1877982838 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4599620479285547443, guid: 11ba52cacd4571a40a1ac6a90ab414b4,
+    type: 3}
+  m_PrefabInstance: {fileID: 4599620479791720911}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1877982839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877982838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adc0db14046ecee4a92b7f7637b52a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NPCPrefab: {fileID: 7623593662699143890, guid: b5c16928efafdc845ab9bffe386dcfbc,
+    type: 3}
+  playerPrefab: {fileID: 3109856974126061273, guid: fa7ef6d1963ec2748ae9acfcca5d96b4,
+    type: 3}
+  numberOfNPCs: 16
+  startLineXValue: -12
+  startLineYValueRange: 12
 --- !u!1001 &4599620479791720911
 PrefabInstance:
   m_ObjectHideFlags: 0
