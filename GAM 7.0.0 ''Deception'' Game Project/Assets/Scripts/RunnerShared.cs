@@ -40,10 +40,10 @@ public class RunnerShared : MonoBehaviour
 	{
 		if (transform.position.x >= FinishLineXPosition)
 		{
-			KillRunner(); // "kill" the runner to stop movement once at the finish line
-
 			if (!NPC)
 				GameManager.SetState(GameState.RunnerVictory); // end the game if we are a player
+			else
+				KillRunner(); // "kill" the runner NPC to stop movement once at the finish line
 		}
 
 		if (Dead)
